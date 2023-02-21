@@ -20,22 +20,23 @@ import java.util.List;
 @Repository
 public class DAOImpl implements DAO{
 
-
-
-
-
     private static SessionFactory sessionFactory = HibernateConfiguration.getSessionFactory();
+    Transaction transaction = null;
     @Override
     public void saveCustomer(Customer temp) {
 
         Session session = sessionFactory.openSession();
 
         try  {
-            // start a transaction
 
+
+            transaction = session.beginTransaction();
             // save the student object
             session.persist(temp);
+
             // commit transaction
+            transaction.commit();
+
 
 
         } catch (Exception e) {
@@ -58,9 +59,9 @@ public class DAOImpl implements DAO{
         CriteriaQuery<Customer> cq = cb.createQuery(Customer.class);
         Root<Customer> rootEntry = cq.from(Customer.class);
         rootEntry.fetch("orders", JoinType.LEFT);
-        List<Customer> customers = session.createQuery(cq).getResultList();
+            return session.createQuery(cq).getResultList();
 
-        return customers;
+         
         } catch (Exception e) {
 
             e.printStackTrace();
@@ -76,9 +77,6 @@ public class DAOImpl implements DAO{
 
         Session session = sessionFactory.openSession();
         try {
-
-
-            Transaction transaction = null;
 
             transaction = session.beginTransaction();
             // save the student object

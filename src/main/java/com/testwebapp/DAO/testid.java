@@ -11,6 +11,6 @@ public class testid {
     public static void main(String[] args) {
         DAOImpl test = new DAOImpl();
 
-            test.deleteCustomer(15);
+            test.deleteCustomer(2);
     }
 }
