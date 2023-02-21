@@ -20,7 +20,11 @@ public class testing {
         customer2.setName("yhy");
         customer2.setUsername("lf");
         customer2.setEmail("ss@g.com");
-
+        //3//
+        Customer customer3 = new Customer();
+        customer3.setName("yhysss");
+        customer3.setUsername("lfsss");
+        customer3.setEmail("ss@g.com");
 
         Order order1 = new Order();
         order1.setName("lp");
@@ -38,6 +42,8 @@ public class testing {
         customer.setOrders(orders);
         test.saveCustomer(customer);
         test.saveCustomer(customer2);
+        test.saveCustomer(customer2);
+        test.saveCustomer(customer3);
         Iterator it = test.getCustomers().iterator();
 
         while(it.hasNext())
