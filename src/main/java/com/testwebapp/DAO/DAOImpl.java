@@ -102,4 +102,33 @@ public class DAOImpl implements DAO{
     }
 
 
+    @Override
+    public  Customer  getCustomer(int id){
+        Session session = sessionFactory.openSession();
+        try {
+
+            transaction = session.beginTransaction();
+            // save the student object
+            Customer customer = session.get(Customer.class, id);
+
+            // commit transaction
+            transaction.commit();
+
+
+    return customer;
+
+
+
+        }catch (Exception e){
+            e.printStackTrace();
+
+        }
+        finally {
+            session.close();
+        }
+return null;
+
+    }
+
+
 }

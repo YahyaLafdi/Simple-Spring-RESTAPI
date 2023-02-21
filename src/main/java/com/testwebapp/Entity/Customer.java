@@ -16,7 +16,7 @@ public class Customer {
  private String username;
  private  String email;
     @JsonManagedReference
-    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Order> orders;
 
     public List<Order> getOrders() {

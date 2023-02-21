@@ -12,14 +12,20 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping  ("/Customer")
+@RequestMapping  ("/customers")
 public class CustomerController {
     @Autowired
     private CustomerService CustomerService;
     @GetMapping("/list")
-    public List<Customer> listCustomers(Model theModel){
+    public List<Customer> listCustomers(){
 
         return CustomerService.getCustomers();
+
+    }
+    @GetMapping("/list/{Id}")
+    public Customer listCustomers(@PathVariable int Id){
+
+        return CustomerService.getCustomer(Id);
 
     }
     @DeleteMapping ("/delete/{id}")
