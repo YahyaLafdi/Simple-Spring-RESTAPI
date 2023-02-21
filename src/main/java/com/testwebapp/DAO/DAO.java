@@ -13,6 +13,7 @@ import java.util.List;
 public interface DAO {
     public void saveCustomer(Customer temp);
     public List< Customer > getCustomers();
+    public  Customer  getCustomer(int id);
     public void deleteCustomer(int id);
 
 }
