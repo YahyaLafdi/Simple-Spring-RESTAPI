@@ -61,7 +61,7 @@ public class DAOImpl implements DAO{
         rootEntry.fetch("orders", JoinType.LEFT);
             return session.createQuery(cq).getResultList();
 
-         
+
         } catch (Exception e) {
 
             e.printStackTrace();
