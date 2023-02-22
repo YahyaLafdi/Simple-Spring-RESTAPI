@@ -26,4 +26,7 @@ public class CustomerServiceImpl implements CustomerService {
     public void deleteCustomer(int id) {
         CustomerDAO.deleteCustomer(id);
     }
+    public void saveCustomer(Customer temp){
+        CustomerDAO.saveCustomer(temp);
+    }
 }

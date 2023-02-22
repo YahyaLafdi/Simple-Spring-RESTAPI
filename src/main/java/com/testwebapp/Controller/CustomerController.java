@@ -35,4 +35,9 @@ public class CustomerController {
 
 
     }
+    @PostMapping("/post")
+    public Customer addCustomer(@RequestBody Customer theCustomer){
+        CustomerService.saveCustomer(theCustomer);
+        return  theCustomer;
+    }
 }
